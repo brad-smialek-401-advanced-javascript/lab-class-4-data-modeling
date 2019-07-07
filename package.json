@@ -17,6 +17,7 @@
   "author": "Brad Smialek",
   "license": "MIT",
   "dependencies": {
+    "faker": "^4.1.0",
     "uuid": "^3.3.2"
   },
   "repository": {
