@@ -1,28 +1,28 @@
-const Categories = require('../categories.js');
+const Products = require('../products.js');
 
-describe('Categories Model', () => {
+describe('Products Model', () => {
 
-  let categories;
+  let products;
 
   beforeEach(() => {
-    categories = new Categories();
-  })
+    products = new Products();
+  });
 
   // How might we repeat this to check on types?
   it('sanitize() returns undefined with missing requirements', () => {
-    const schema = categories.schema;
+    const schema = products.schema;
     var testRecord = {};
     for (var field in schema) {
       if (schema[field].required) {
         testRecord[field] = null;
       }
     }
-    expect(categories.sanitize(testRecord)).toBeUndefined();
+    expect(products.sanitize(testRecord)).toBeUndefined();
   });
 
-  it('can post() a new category', () => {
-    let obj = { name: 'Test Category' };
-    return categories.create(obj)
+  it('can post() a new product', () => {
+    let obj = { name: 'Test Product' };
+    return products.create(obj)
       .then(record => {
         Object.keys(obj).forEach(key => {
           expect(record[key]).toEqual(obj[key]);
@@ -31,11 +31,11 @@ describe('Categories Model', () => {
       .catch(e => console.error('ERR', e));
   });
 
-  it('can get() a category', () => {
-    let obj = { name: 'Test Category' };
-    return categories.create(obj)
+  it('can get() a product', () => {
+    let obj = { name: 'Test Product' };
+    return products.create(obj)
       .then(record => {
-        return categories.get(record._id)
+        return products.get(record._id)
           .then(category => {
             Object.keys(obj).forEach(key => {
               expect(category[0][key]).toEqual(obj[key]);

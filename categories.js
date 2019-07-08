@@ -1,6 +1,6 @@
 'use strict';
 
-const DataModel = require('../memory.js');
+const DataModel = require('./memory.js');
 
 class Categories extends DataModel {
   constructor() {
@@ -13,3 +13,7 @@ class Categories extends DataModel {
 }
 
 module.exports = Categories;
+
+
+// function called Categories
+console.log(module.exports);
