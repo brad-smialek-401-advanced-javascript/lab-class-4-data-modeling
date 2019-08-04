@@ -1,6 +1,6 @@
 'use strict';
 
-const DataModel = require('../memory.js');
+const DataModel = require('./memory.js');
 
 class Categories extends DataModel {
   constructor() {
@@ -8,6 +8,7 @@ class Categories extends DataModel {
     this.schema = {
       id: { required: true },
       name: { required: true },
+      field: {required: false},
     };
   }
 }
