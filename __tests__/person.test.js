@@ -1,4 +1,5 @@
-const Products = require('../person.js');
+
+const Person = require('../person.js');
 
 describe('Person Model', () => {
 
@@ -11,6 +12,7 @@ describe('Person Model', () => {
   // How might we repeat this to check on types?
   it('sanitize() returns undefined with missing requirements', () => {
     const schema = person.schema;
+    console.log(schema);
     var testRecord = {};
     for (var field in schema) {
       if (schema[field].required) {

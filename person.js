@@ -15,5 +15,3 @@ class Person extends DataModel {
 module.exports = Person;
 
 
-// function called Categories
-console.log(module.exports);

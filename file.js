@@ -1,11 +1,9 @@
 'use strict';
 
 const uuid = require('uuid/v4');
+const fs = require('./__mocks__/fs.js');
 
-const schema = {
-  id: { required: true },
-  name: { required: true },
-};
+
 
 class Model {
 
@@ -20,8 +18,11 @@ class Model {
   }
 
   create(entry) {
+    console.log('entry :', entry);
     entry.id = uuid();
-    let record = this.sanitize(entry);
+    console.log('entry.id :',entry.id);
+    let record = this.sanitize(entry);//?
+    console.log('record :', record);
     if (record.id) { this.database.push(record); }
     return Promise.resolve(record);
   }
@@ -44,9 +45,13 @@ class Model {
 
     Object.keys(this.schema).forEach(field => {
       if (this.schema[field].required) {
+        console.log('this.schema[field].required : ', this.schema[field].required);
         if (entry[field]) {
+          // console.log('record[field] : ', record[field]);
+          console.log('entry[field] : ', entry[field]);
           record[field] = entry[field];
         } else {
+          console.log('valid',entry[field],valid);
           valid = false;
         }
       }

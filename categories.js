@@ -8,12 +8,9 @@ class Categories extends DataModel {
     this.schema = {
       id: { required: true },
       name: { required: true },
+      field: {required: false},
     };
   }
 }
 
 module.exports = Categories;
-
-
-// function called Categories
-console.log(module.exports);
